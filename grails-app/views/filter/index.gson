@@ -1,0 +1,54 @@
+package filter
+
+import HR_domains.ApprovedTechnologies
+import HR_domains.Employee
+import HR_domains.Meet
+import HR_domains.Task
+
+model {
+    List<Employee> employees
+}
+
+json {
+    employee employees, { Employee employee ->
+        unic_identifier employee.id
+        name employee.name
+        surname employee.surname
+        patronymic employee.patronymic
+        birthday employee.birthday
+        isdocumented employee.isdocumented
+        if (employee.passport != null) {
+            passport(
+                    dateissue: employee.passport.dateissue,
+                    placeissue: employee.passport.placeissue,
+                    series: employee.passport.series,
+                    number: employee.passport.number,
+                    unitcode: employee.passport.unitcode
+            )
+        } else
+            passport()
+        if (employee.tasks != null) {
+            tasks employee.tasks, { Task task ->
+                name task.name
+                limitation task.limitation
+                performancefeatures task.performancefeatures
+                evalution task.evalution
+                approvedtechnologies task.approvedtechnologies, { ApprovedTechnologies approvedTechnology ->
+                    technologies approvedTechnology.technologies
+                }
+            }
+        } else
+            tasks()
+        if (employee.meets != null) {
+            meets employee.meets, { Meet meet ->
+                target meet.target
+                data meet.data
+                typemeet meet.typemeet
+                evalution meet.evalution
+
+            }
+        }
+        else
+            meets()
+    }
+}

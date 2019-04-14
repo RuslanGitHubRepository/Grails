@@ -1,0 +1,28 @@
+package passport
+
+import HR_domains.Employee
+import HR_domains.Passport
+
+model {
+    List<Employee> employees
+}
+
+json{
+    employees   employees,{Employee employee->
+        name employee.name
+        surname employee.surname
+        if(employee.passport != null) {
+            passport(
+                    unic_identifier: employee.passport.id,
+                    dateissue: employee.passport.dateissue,
+                    placeissue: employee.passport.placeissue,
+                    series: employee.passport.series,
+                    number: employee.passport.number,
+                    unitcode: employee.passport.unitcode
+            )
+        }
+        else
+            passport()
+    }
+
+}

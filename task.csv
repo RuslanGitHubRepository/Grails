@@ -1,0 +1,8 @@
+version,name,limitation,performancefeatures,evalution,employee_id
+1,"service","2015-01-02","normal","ILL",1
+1,"dao","2016-02-09","normal","ILL",2
+1,"dto","2015-03-07","normal","DEADLY",3
+1,"grails","201-02-05","normal","FINE",4
+1,"gradle","2013-03-03","normal","ALRIGHT",5
+1,"groovy","2012-05-02","normal","PERFECTLY",6
+1,"java","2011-07-01","normal","ILL",7

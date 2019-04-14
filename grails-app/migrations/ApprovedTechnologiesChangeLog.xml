@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.0.xsd
+        http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+
+    <preConditions>
+        <runningAs username="postgres"/>
+    </preConditions>
+
+    <changeSet id="1" author="ruslan.kondratyev">
+        <createTable tableName="approved_technologies">
+            <column name="id" type="int8" autoIncrement="true">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="version" type="int8"/>
+            <column name="technologies" type="varchar(50)"/>
+            <column name="task_id" type="int8"/>
+        </createTable>
+    </changeSet>
+
+    <changeSet author="ruslan.kondratyev" id="2">
+        <addForeignKeyConstraint baseColumnNames="task_id"
+                                 baseTableName="approved_technologies"
+                                 constraintName="fk_approvedtechnologies_task"
+                                 deferrable="true"
+                                 initiallyDeferred="true"
+                                 onDelete="CASCADE"
+                                 onUpdate="CASCADE"
+                                 referencedColumnNames="id"
+                                 referencedTableName="task"/>
+    </changeSet>
+</databaseChangeLog>

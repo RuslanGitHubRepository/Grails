@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.0.xsd
+        http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+
+    <preConditions>
+        <runningAs username="postgres"/>
+    </preConditions>
+
+<changeSet author="ruslan.kondratyev" id="1">
+    <loadData encoding="UTF-8"
+              file="../passport.csv"
+              schemaName="hr_schema"
+              separator=","
+              tableName="passport">
+    </loadData>
+    <loadData encoding="UTF-8"
+              file="../employee.csv"
+              schemaName="hr_schema"
+              separator=","
+              tableName="employee">
+    </loadData>
+    <loadData encoding="UTF-8"
+              file="../meet.csv"
+              schemaName="hr_schema"
+              separator=","
+              tableName="meet">
+    </loadData>
+    <loadData encoding="UTF-8"
+              file="../task.csv"
+              schemaName="hr_schema"
+              separator=","
+              tableName="task">
+    </loadData>
+    <loadData encoding="UTF-8"
+              file="../approvedTechnologies.csv"
+              schemaName="hr_schema"
+              separator=","
+              tableName="approved_technologies">
+    </loadData>
+</changeSet>
+
+</databaseChangeLog>

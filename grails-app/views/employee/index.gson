@@ -1,0 +1,17 @@
+import HR_domains.Employee
+
+model {
+	List<Employee> employees
+
+}
+
+json{
+    employees   employees,{Employee employee->
+        unic_identifier  employee.id
+        name employee.name
+        surname employee.surname
+        patronymic employee.patronymic
+        birthday employee.birthday
+        isDocumented employee.isdocumented
+    }
+}

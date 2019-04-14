@@ -1,0 +1,19 @@
+package filter
+
+import HR_domains.ApprovedTechnologies
+import HR_domains.Employee
+import HR_domains.Meet
+import HR_domains.Task
+
+model {
+    List<Employee> employees
+}
+
+json {
+    employee employees, { Employee employee ->
+        unic_identifier employee.id
+        name employee.name
+        surname employee.surname
+        patronymic employee.patronymic
+    }
+}

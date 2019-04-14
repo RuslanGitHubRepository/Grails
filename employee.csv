@@ -1,0 +1,8 @@
+version,name,surname,patronymic,birthday,isdocumented,passport_id
+1,"Ivan","Ivanov","None","2011-09-13",false,1
+1,"Peter","Petrov","None","2011-09-12",true,2
+1,"Gohn","Smitt","None","2011-09-10",true,3
+1,"Mary","Geil","None","2011-09-14",false,4
+1,"Kate","Sawel","None","2011-09-15",true,5
+1,"Salary","Pokito","None","2011-09-16",false,6
+1,"Matilda","Petrovich","None","2011-09-17",true,7
